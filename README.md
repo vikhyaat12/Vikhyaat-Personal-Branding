@@ -3,8 +3,6 @@
 A premium, bilingual (English + Hindi) personal portfolio website for **Vikhyaat Sikand** — Digital Marketing Manager, Amazon Ads Specialist, and eCommerce Growth Strategist.  
 Built with [Vite](https://vitejs.dev/), [React](https://react.dev/), and [Netlify CMS](https://www.netlifycms.org/) for easy editing and blazing fast performance.
 
----
-
 ## 🚀 Features
 
 - **Multilingual:** English & Hindi with language switcher + auto-detection
