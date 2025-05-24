@@ -1,0 +1,66 @@
+{
+  "en": {
+    "hero": {
+      "name": "Vikhyaat Sikand",
+      "title": "Digital Marketing Manager | Amazon Ads Specialist",
+      "subtitle": "eCommerce Growth Strategist",
+      "cta": "Let's Connect"
+    },
+    "about": {
+      "heading": "About Me",
+      "content": "With over 7 years of experience in digital marketing, I help brands scale their eCommerce using the latest growth strategies and Amazon Ads expertise."
+    },
+    "story": {
+      "heading": "My Story",
+      "content": "From launching my first campaign to managing multi-crore budgets for international brands, my journey is about constant learning and results."
+    },
+    "services": {
+      "heading": "Services",
+      "list": [
+        "Amazon Advertising & Account Management",
+        "eCommerce Marketplace Consulting",
+        "Brand Growth Strategy",
+        "Digital Ad Campaigns"
+      ]
+    },
+    "contact": {
+      "heading": "Contact Me",
+      "cta": "Book a Call",
+      "linkedin": "https://linkedin.com/in/vikhyaatsikand",
+      "whatsapp": "https://wa.me/your-number",
+      "calendly": "https://calendly.com/your-link"
+    }
+  },
+  "hi": {
+    "hero": {
+      "name": "विख्यात सिकंद",
+      "title": "डिजिटल मार्केटिंग मैनेजर | अमेज़न एड्स विशेषज्ञ",
+      "subtitle": "ई-कॉमर्स ग्रोथ स्ट्रैटजिस्ट",
+      "cta": "चलो जुड़ें"
+    },
+    "about": {
+      "heading": "मेरे बारे में",
+      "content": "7+ साल के डिजिटल मार्केटिंग अनुभव के साथ, मैं ब्रांड्स को ई-कॉमर्स में ग्रोथ और अमेज़न एड्स एक्सपर्टीज़ से आगे बढ़ाता हूँ।"
+    },
+    "story": {
+      "heading": "मेरी कहानी",
+      "content": "पहला कैम्पेन लॉन्च करने से लेकर इंटरनेशनल ब्रांड्स के लिए करोड़ों का बजट संभालने तक, मेरी यात्रा लगातार सीखने और परिणाम देने की रही है।"
+    },
+    "services": {
+      "heading": "सेवाएँ",
+      "list": [
+        "अमेज़न विज्ञापन एवं खाता प्रबंधन",
+        "ई-कॉमर्स मार्केटप्लेस सलाह",
+        "ब्रांड ग्रोथ स्ट्रैटजी",
+        "डिजिटल एड कैम्पेन"
+      ]
+    },
+    "contact": {
+      "heading": "संपर्क करें",
+      "cta": "कॉल बुक करें",
+      "linkedin": "https://linkedin.com/in/vikhyaatsikand",
+      "whatsapp": "https://wa.me/your-number",
+      "calendly": "https://calendly.com/your-link"
+    }
+  }
+}
