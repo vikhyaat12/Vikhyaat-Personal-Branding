@@ -1,28 +1,40 @@
 backend:
-  name: github
-  repo: vikhyaat12/your-repo-name
+  name: git-gateway
   branch: main
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "uploads"
+public_folder: "/uploads"
 
 collections:
-  - name: "settings"
-    label: "Site Settings"
+  - name: "site"
+    label: "Site Content"
     files:
-      - label: "Theme & Logo"
-        name: "theme"
-        file: "data/theme.json"
+      - file: "content.json"
+        label: "Portfolio Content"
+        name: "portfolio_content"
         fields:
-          - { label: "Theme Color", name: "color", widget: "color" }
-          - { label: "Logo", name: "logo", widget: "image" }
-  - name: "pages"
-    label: "Pages"
-    folder: "pages"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Featured Image", name: "image", widget: "image", required: false }
-      - { label: "Videos", name: "videos", widget: "list", required: false, field: {label: "Video URL", name: "url", widget: "string"} }
+          - { label: "Profile Image", name: "profile_img", widget: "image" }
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Story", name: "story", widget: "markdown" }
+          - { label: "Expertise", name: "expertise", widget: "string" }
+          - label: "Achievements"
+            name: "achievements"
+            widget: "list"
+            fields:
+              - { label: "Icon (FontAwesome class)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "string" }
+          - { label: "Case Studies", name: "caseStudies", widget: "markdown" }
+          - { label: "Quote", name: "quote", widget: "string" }
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "LinkedIn", name: "linkedin", widget: "string" }
+              - { label: "Instagram", name: "instagram", widget: "string" }
+              - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+              - { label: "WhatsApp Message", name: "whatsappMsg", widget: "string" }
