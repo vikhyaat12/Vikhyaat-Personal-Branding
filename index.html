@@ -3,13 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Vikhyaat Sikand – Digital Marketing Manager | Personal Branding Portfolio" />
-  <title>Vikhyaat Sikand | Digital Marketing Portfolio</title>
+  <meta name="description" content="Vikhyaat Sikand – Amazon Ads Specialist | eCommerce Growth Architect | Portfolio" />
+  <title>Vikhyaat Sikand | Amazon Ads Specialist Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Favicon & OG -->
+  <link rel="icon" href="https://via.placeholder.com/32x32.png?text=VS" />
+  <meta property="og:title" content="Vikhyaat Sikand | Amazon Ads Specialist" />
+  <meta property="og:description" content="Boosting sales with data, creativity, and 6.5+ years of proven experience." />
+  <meta property="og:image" content="https://via.placeholder.com/150" />
+  <meta property="og:type" content="website" />
   <style>
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -58,6 +66,12 @@
       margin-right: auto;
       line-height: 1.8;
     }
+    .tagline-typing {
+      font-size: 1.2rem;
+      color: #FFD700;
+      margin-top: 1rem;
+      min-height: 2.2em;
+    }
     section {
       padding: 60px 30px;
       max-width: 900px;
@@ -67,10 +81,10 @@
     section:hover {
       transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
     }
-    .story, .skills, .quote, .contact {
+    .story, .skills, .achievements, .case-studies, .quote, .contact {
       margin-bottom: 60px;
     }
-    .story {
+    .story, .case-studies {
       background: linear-gradient(145deg, #111, #000);
       border-radius: 20px;
       box-shadow: 0 15px 35px rgba(247, 198, 0, 0.25), 0 25px 55px rgba(0, 0, 0, 0.5);
@@ -78,9 +92,33 @@
       transform-style: preserve-3d;
       transition: transform 0.8s ease, box-shadow 0.8s ease;
     }
-    .story:hover {
+    .story:hover, .case-studies:hover {
       transform: rotateY(10deg) rotateX(5deg) scale(1.01);
       box-shadow: 0 25px 60px rgba(247, 198, 0, 0.35), 0 35px 70px rgba(0, 0, 0, 0.6);
+    }
+    .achievements {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+    .achievement-card {
+      background: #181818;
+      border-radius: 15px;
+      padding: 24px 28px;
+      min-width: 240px;
+      box-shadow: 0 4px 16px rgba(247,198,0,0.07);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .achievement-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+    }
+    .achievement-card .icon {
+      font-size: 2.3em;
+      color: #FFD700;
+      margin-bottom: 10px;
     }
     h2 {
       font-size: 2em;
@@ -127,48 +165,195 @@
     .contact:hover {
       transform: scale(1.02) rotateX(3deg);
     }
+    /* Removed social-links from contact section */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.6em;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .whatsapp-float:hover {
+      background: #1ebe57;
+      color: #fff;
+    }
+    @media (max-width: 600px) {
+      .achievements { flex-direction: column; align-items: center; }
+      .achievement-card { min-width: unset; width: 100%; }
+      section { padding: 36px 8px; }
+    }
   </style>
 </head>
 <body>
   <div id="loader">Loading...</div>
   <div id="three-container"></div>
 
-  <!-- Updated HEADER Section -->
+  <!-- Header/Hero -->
   <header>
     <img src="vikhyaat-profile.jpg" alt="Vikhyaat Sikand" data-aos="zoom-in" />
-    <h1 data-aos="fade-down">Vikhyaat Sikand</h1>
-    <p data-aos="fade-up">Digital Marketing Manager | Amazon Ads Expert | eCommerce Growth Strategist</p>
-    <p class="intro-text" data-aos="fade-in">
-      From small beginnings to impactful results — my journey is driven by passion, resilience, and real-world experience in growing brands digitally. I believe in strategy backed by data, creative backed by insight, and execution backed by intent.
+    <h1 data-aos="fade-down" id="hero-name">Vikhyaat Sikand</h1>
+    <p data-aos="fade-up" id="hero-title">Amazon Ads Specialist | eCommerce Growth Architect</p>
+    <p class="intro-text" data-aos="fade-in" id="hero-intro">
+      <!-- Filled by JS -->
     </p>
+    <p id="typing-text" class="tagline-typing"></p>
   </header>
 
+  <!-- Motivational Story -->
   <section class="story" data-aos="fade-right">
     <h2>My Story</h2>
-    <p>I wasn’t handed a ready path. No shortcuts. I carved my journey — with every decision, every challenge, and every night of relentless work.<br><br>I didn’t enter this digital world as an expert, but as a curious learner. No agency background, no family business — just a passion and a desire to create impact. I failed. But every failure became a lesson. I treated every campaign like a lab, and every product as a potential brand.<br><br>Where most marketers follow formulas, I chase the new. Innovation isn’t a buzzword for me — it’s a habit. I believe an idea should surprise, and its execution should inspire. Be it launching Amazon ads, building influencer funnels, or optimizing listings — I don’t just solve problems, I reimagine possibilities.<br><br>In my journey from unseen to unforgettable, I’ve helped brands stand out — powered by strategy, creativity, and bold thinking.<br><br>Today, I don’t just manage marketing. I lead digital growth, driven by a mindset that blends hard work with smart innovation. I’m not in the race. I set the trends.</p>
+    <p id="my-story"></p>
   </section>
 
+  <!-- Skills/Expertise -->
   <section class="skills" data-aos="fade-left">
-    <h2>What I Do</h2>
-    <p>SEO, Amazon Ads, Product Optimization, Influencer Strategy, D2C Branding</p>
+    <h2>Expertise</h2>
+    <p id="expertise"></p>
     <canvas class="skill-canvas" id="skillCanvas"></canvas>
   </section>
 
-  <section class="quote" data-aos="zoom-in">
-    <h2>Words That Inspire Me</h2>
-    <p>“Innovation distinguishes between a leader and a follower.” – Steve Jobs</p>
+  <!-- Achievements -->
+  <section class="achievements" data-aos="fade-up" id="achievements-section">
+    <!-- Filled by JS -->
   </section>
 
+  <!-- Case Studies -->
+  <section class="case-studies" data-aos="fade-right">
+    <h2>Case Studies / Success Stories</h2>
+    <p id="case-studies"></p>
+  </section>
+
+  <!-- Quote -->
+  <section class="quote" data-aos="zoom-in">
+    <h2>Words That Inspire Me</h2>
+    <p id="quote"></p>
+  </section>
+
+  <!-- Contact -->
   <section class="contact" data-aos="fade-up">
     <h2>Let’s Connect</h2>
-    <p>If you want to take your brand to the next level, let’s talk.</p>
+    <p>Email: <a id="contact-email" href="">Email</a></p>
+    <!-- Social links removed from here as requested -->
   </section>
 
   <footer>
-    &copy; 2025 Vikhyaat Sikand. All rights reserved.
+    &copy; <span id="footer-year"></span> Vikhyaat Sikand. All rights reserved.
+    <div style="margin-top: 1rem;">
+      <a id="linkedin-link-footer" href="#" target="_blank" style="color: #FFD700; margin: 0 10px;">
+        <i class="fab fa-linkedin fa-lg"></i>
+      </a>
+      <a id="instagram-link-footer" href="#" target="_blank" style="color: #FFD700; margin: 0 10px;">
+        <i class="fab fa-instagram fa-lg"></i>
+      </a>
+    </div>
   </footer>
 
+  <!-- WhatsApp Floating Button -->
+  <a id="whatsapp-btn"
+     href="#"
+     class="whatsapp-float"
+     target="_blank"
+     title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
   <script>
+    // Editable Content - loaded from content.json (in real Netlify CMS deploy, load via fetch or direct import)
+    const content = {
+      hero: {
+        name: "Vikhyaat Sikand",
+        title: "Amazon Ads Specialist | eCommerce Growth Architect",
+        intro: "6.5+ years in digital marketing & eCommerce advertising<br>4.5 years at Oswaal Books (eCommerce Ads & Influencer Marketing) | 2+ years at Physics Wallah<br>Proven track record in scaling brands, optimizing ACOS, and influencer marketing.",
+        tagline: "Helping Brands Thrive on Amazon | Creative. Data-Driven. Impactful."
+      },
+      story: `My journey began not with privilege, but with purpose. From humble beginnings, I stepped into the world of eCommerce not as an expert, but as a relentless learner.<br><br>
+      At Oswaal Books, I faced the challenge of building influencer marketing from scratch while driving eCommerce ad growth. Many doubted if a single campaign could spark a revolution, but I believed every experiment—every late night, every setback—was a step forward.<br><br>
+      When I joined Physics Wallah, the stakes were even higher: high ACOS, limited profitability, and immense pressure. But I saw every challenge as an opportunity to build, innovate, and inspire. I rebuilt frameworks, tested boldly, and proved that with grit and vision, any brand can rise above the noise.<br><br>
+      My story is simple: If you have the hunger to create real impact, you can rewrite the rules. I turned failures into lessons, ideas into actions, and dreams into results. Today, I help brands not just compete—but become unforgettable.<br><br>
+      Success isn’t given. It’s earned—with courage, creativity, and the mindset to never stop growing.`,
+      expertise: "Amazon Advertising, ACOS Optimization, Influencer Marketing, Creative Testing & Ad Framework Building, Data-Driven Growth Strategies",
+      achievements: [
+        {
+          icon: "fa-solid fa-arrow-trend-up",
+          title: "300% Sales Growth",
+          desc: "Delivered exceptional revenue jumps for brands"
+        },
+        {
+          icon: "fa-solid fa-percent",
+          title: "85% ACOS Reduction",
+          desc: "Lowered ad costs substantially while growing sales"
+        },
+        {
+          icon: "fa-solid fa-users",
+          title: "1000+ Influencer Collabs",
+          desc: "Built massive creator partnerships for brands"
+        }
+      ],
+      caseStudies: `<b>Oswaal Books:</b> Built eCommerce ads and influencer marketing from scratch. Led 1000+ creator collabs, resulting in viral reach and organic sales boost.<br><br>
+        <b>Physics Wallah:</b> Transformed ad strategy, rebuilt frameworks, and cut ACOS by 85% while driving 300% sales growth.`,
+      quote: `“Innovation distinguishes between a leader and a follower.” – Steve Jobs`,
+      contact: {
+        email: "vikhyaat.sikand@gmail.com",
+        linkedin: "https://www.linkedin.com/in/vikhyaatsikand",
+        instagram: "https://www.instagram.com/vikhyaatdigital",
+        whatsapp: "918881215329",
+        whatsappMsg: "Hi Vikhyaat, I am interested in boosting my brand with your Amazon marketing strategies."
+      }
+    };
+
+    // Fill content
+    document.getElementById("hero-name").innerHTML = content.hero.name;
+    document.getElementById("hero-title").innerHTML = content.hero.title;
+    document.getElementById("hero-intro").innerHTML = content.hero.intro;
+    // Typing effect
+    let t = 0; const tagText = content.hero.tagline;
+    function typeEffect() {
+      if (t < tagText.length) {
+        document.getElementById("typing-text").innerHTML += tagText.charAt(t);
+        t++;
+        setTimeout(typeEffect, 50);
+      }
+    } typeEffect();
+    // Story
+    document.getElementById("my-story").innerHTML = content.story;
+    // Expertise
+    document.getElementById("expertise").innerHTML = content.expertise;
+    // Achievements
+    document.getElementById("achievements-section").innerHTML = content.achievements.map(a => `
+      <div class="achievement-card">
+        <div class="icon"><i class="${a.icon}"></i></div>
+        <div style="font-size:1.3em;font-weight:600">${a.title}</div>
+        <div>${a.desc}</div>
+      </div>
+    `).join("");
+    // Case studies
+    document.getElementById("case-studies").innerHTML = content.caseStudies;
+    // Quote
+    document.getElementById("quote").innerHTML = content.quote;
+    // Contact
+    document.getElementById("contact-email").href = "mailto:" + content.contact.email;
+    document.getElementById("contact-email").innerText = content.contact.email;
+    // Social links only in footer
+    document.getElementById("linkedin-link-footer").href = content.contact.linkedin;
+    document.getElementById("instagram-link-footer").href = content.contact.instagram;
+    // WhatsApp floating button
+    document.getElementById("whatsapp-btn").href =
+      "https://api.whatsapp.com/send?phone=" + content.contact.whatsapp +
+      "&text=" + encodeURIComponent(content.contact.whatsappMsg);
+    // Footer year
+    document.getElementById("footer-year").innerText = new Date().getFullYear();
+
+    // --- Rest of your effects and canvas ---
     window.addEventListener('load', () => {
       document.getElementById('loader').style.display = 'none';
     });
@@ -192,7 +377,6 @@
     const knotMaterial = new THREE.MeshStandardMaterial({ color: 0xf7c600, metalness: 1, roughness: 0.3 });
     const torusGeometry = new THREE.TorusKnotGeometry(0.4, 0.15, 100, 16);
     const torusMeshes = [];
-
     for(let i = 0; i < 40; i++) {
       const mesh = new THREE.Mesh(torusGeometry, knotMaterial);
       mesh.position.set(Math.random()*10 - 5, Math.random()*10 - 5, Math.random()*10 - 5);
@@ -201,7 +385,6 @@
       scene.add(mesh);
       torusMeshes.push(mesh);
     }
-
     document.addEventListener('mousemove', (event) => {
       const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
       const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -209,7 +392,6 @@
       camera.position.y += (mouseY * 2 - camera.position.y) * 0.05;
       camera.lookAt(scene.position);
     });
-
     function animate() {
       requestAnimationFrame(animate);
       torusMeshes.forEach(mesh => {
@@ -219,22 +401,23 @@
       renderer.render(scene, camera);
     }
     animate();
-
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
+    // Skills Bar Chart
     const skillCanvas = document.getElementById('skillCanvas');
     const ctx = skillCanvas.getContext('2d');
     function drawBars() {
       ctx.clearRect(0, 0, skillCanvas.width, skillCanvas.height);
       const skills = [
-        { name: 'Amazon Ads', value: 90 },
-        { name: 'SEO', value: 85 },
-        { name: 'Influencer Strategy', value: 80 },
-        { name: 'Product Listings', value: 75 },
+        { name: 'Amazon Ads', value: 95 },
+        { name: 'ACOS Optimization', value: 93 },
+        { name: 'Influencer Mktg.', value: 92 },
+        { name: 'Creative Testing', value: 90 },
+        { name: 'Growth Strategy', value: 91 }
       ];
       const barWidth = 60;
       const gap = 40;
@@ -247,7 +430,13 @@
         ctx.fillText(skill.name, x, skillCanvas.height - barHeight - 10);
       });
     }
-    drawBars();
+    function resizeSkillCanvas() {
+      skillCanvas.width = skillCanvas.offsetWidth;
+      skillCanvas.height = 300;
+      drawBars();
+    }
+    window.addEventListener('resize', resizeSkillCanvas);
+    resizeSkillCanvas();
   </script>
 </body>
 </html>
