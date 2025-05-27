@@ -1,0 +1,37 @@
+{
+  "profile_img": "uploads/vikhyaat-profile.jpg",
+  "hero": {
+    "name": "Vikhyaat Sikand",
+    "title": "Amazon Ads Specialist | eCommerce Growth Architect",
+    "intro": "6.5+ years in digital marketing & eCommerce advertising<br>4.5 years at Oswaal Books (eCommerce Ads & Influencer Marketing) | 2+ years at Physics Wallah<br>Proven track record in scaling brands, optimizing ACOS, and influencer marketing.",
+    "tagline": "Helping Brands Thrive on Amazon | Creative. Data-Driven. Impactful."
+  },
+  "story": "My journey began not with privilege, but with purpose. From humble beginnings, I stepped into the world of eCommerce not as an expert, but as a relentless learner.<br><br>At Oswaal Books, I faced the challenge of building influencer marketing from scratch while driving eCommerce ad growth. Many doubted if a single campaign could spark a revolution, but I believed every experiment—every late night, every setback—was a step forward.<br><br>When I joined Physics Wallah, the stakes were even higher: high ACOS, limited profitability, and immense pressure. But I saw every challenge as an opportunity to build, innovate, and inspire. I rebuilt frameworks, tested boldly, and proved that with grit and vision, any brand can rise above the noise.<br><br>My story is simple: If you have the hunger to create real impact, you can rewrite the rules. I turned failures into lessons, ideas into actions, and dreams into results. Today, I help brands not just compete—but become unforgettable.<br><br>Success isn’t given. It’s earned—with courage, creativity, and the mindset to never stop growing.",
+  "expertise": "Amazon Advertising, ACOS Optimization, Influencer Marketing, Creative Testing & Ad Framework Building, Data-Driven Growth Strategies",
+  "achievements": [
+    {
+      "icon": "fa-solid fa-arrow-trend-up",
+      "title": "300% Sales Growth",
+      "desc": "Delivered exceptional revenue jumps for brands"
+    },
+    {
+      "icon": "fa-solid fa-percent",
+      "title": "85% ACOS Reduction",
+      "desc": "Lowered ad costs substantially while growing sales"
+    },
+    {
+      "icon": "fa-solid fa-users",
+      "title": "1000+ Influencer Collabs",
+      "desc": "Built massive creator partnerships for brands"
+    }
+  ],
+  "caseStudies": "<b>Oswaal Books:</b> Built eCommerce ads and influencer marketing from scratch. Led 1000+ creator collabs, resulting in viral reach and organic sales boost.<br><br><b>Physics Wallah:</b> Transformed ad strategy, rebuilt frameworks, and cut ACOS by 85% while driving 300% sales growth.",
+  "quote": "“Innovation distinguishes between a leader and a follower.” – Steve Jobs",
+  "contact": {
+    "email": "vikhyaat.sikand@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/vikhyaat-sikand/",
+    "instagram": "https://www.instagram.com/vikhyaatdigital",
+    "whatsapp": "918881215329",
+    "whatsappMsg": "Hi Vikhyaat, I am interested in boosting my brand with your Amazon marketing strategies."
+  }
+}
