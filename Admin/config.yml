@@ -1,20 +1,28 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: vikhyaat12/your-repo-name
   branch: main
 
-media_folder: "public/uploads"
-public_folder: "/uploads"
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 collections:
-  - name: "homepage"
-    label: "Homepage Content"
+  - name: "settings"
+    label: "Site Settings"
     files:
-      - file: "src/data.json"
-        label: "Multilingual Content"
-        name: "data"
+      - label: "Theme & Logo"
+        name: "theme"
+        file: "data/theme.json"
         fields:
-          - { label: "Hero Section", name: "hero", widget: "object" }
-          - { label: "About Section", name: "about", widget: "object" }
-          - { label: "Story Section", name: "story", widget: "object" }
-          - { label: "Services Section", name: "services", widget: "object" }
-          - { label: "Contact Section", name: "contact", widget: "object" }
+          - { label: "Theme Color", name: "color", widget: "color" }
+          - { label: "Logo", name: "logo", widget: "image" }
+  - name: "pages"
+    label: "Pages"
+    folder: "pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Videos", name: "videos", widget: "list", required: false, field: {label: "Video URL", name: "url", widget: "string"} }
