@@ -165,6 +165,18 @@
     .contact:hover {
       transform: scale(1.02) rotateX(3deg);
     }
+    .contact .social-links {
+      margin: 1.5em 0 0 0;
+    }
+    .contact .social-links a {
+      color: #FFD700;
+      margin: 0 10px;
+      font-size: 1.5em;
+      transition: color .2s;
+    }
+    .contact .social-links a:hover {
+      color: #fff200;
+    }
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
@@ -200,10 +212,12 @@
 
   <!-- Header/Hero -->
   <header>
-    <img id="profile-img" src="vikhyaat-profile.jpg" alt="Vikhyaat Sikand" data-aos="zoom-in" />
-    <h1 data-aos="fade-down" id="hero-name"></h1>
-    <p data-aos="fade-up" id="hero-title"></p>
-    <p class="intro-text" data-aos="fade-in" id="hero-intro"></p>
+    <img src="vikhyaat-profile.jpg" alt="Vikhyaat Sikand" data-aos="zoom-in" />
+    <h1 data-aos="fade-down" id="hero-name">Vikhyaat Sikand</h1>
+    <p data-aos="fade-up" id="hero-title">Amazon Ads Specialist | eCommerce Growth Architect</p>
+    <p class="intro-text" data-aos="fade-in" id="hero-intro">
+      <!-- Filled by JS -->
+    </p>
     <p id="typing-text" class="tagline-typing"></p>
   </header>
 
@@ -221,7 +235,9 @@
   </section>
 
   <!-- Achievements -->
-  <section class="achievements" data-aos="fade-up" id="achievements-section"></section>
+  <section class="achievements" data-aos="fade-up" id="achievements-section">
+    <!-- Filled by JS -->
+  </section>
 
   <!-- Case Studies -->
   <section class="case-studies" data-aos="fade-right">
@@ -239,6 +255,10 @@
   <section class="contact" data-aos="fade-up">
     <h2>Let’s Connect</h2>
     <p>Email: <a id="contact-email" href="">Email</a></p>
+    <div class="social-links">
+      <a id="linkedin-link" href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a id="instagram-link" href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
   </section>
 
   <footer>
@@ -262,55 +282,93 @@
     <i class="fab fa-whatsapp"></i>
   </a>
   <script>
-    // Dynamically load content from content.json (CMS editable)
-    fetch('content.json')
-      .then(res => res.json())
-      .then(content => {
-        // Header
-        document.getElementById("profile-img").src = content.profile_img || "vikhyaat-profile.jpg";
-        document.getElementById("hero-name").innerHTML = content.hero.name;
-        document.getElementById("hero-title").innerHTML = content.hero.title;
-        document.getElementById("hero-intro").innerHTML = content.hero.intro;
-        // Typing effect
-        let t = 0; const tagText = content.hero.tagline;
-        document.getElementById("typing-text").innerHTML = '';
-        function typeEffect() {
-          if (t < tagText.length) {
-            document.getElementById("typing-text").innerHTML += tagText.charAt(t);
-            t++;
-            setTimeout(typeEffect, 50);
-          }
-        } typeEffect();
-        // Story
-        document.getElementById("my-story").innerHTML = content.story;
-        // Expertise
-        document.getElementById("expertise").innerHTML = content.expertise;
-        // Achievements
-        document.getElementById("achievements-section").innerHTML = content.achievements.map(a => `
-          <div class="achievement-card">
-            <div class="icon"><i class="${a.icon}"></i></div>
-            <div style="font-size:1.3em;font-weight:600">${a.title}</div>
-            <div>${a.desc}</div>
-          </div>
-        `).join("");
-        // Case studies
-        document.getElementById("case-studies").innerHTML = content.caseStudies;
-        // Quote
-        document.getElementById("quote").innerHTML = content.quote;
-        // Contact
-        document.getElementById("contact-email").href = "mailto:" + content.contact.email;
-        document.getElementById("contact-email").innerText = content.contact.email;
-        // Social links only in footer
-        document.getElementById("linkedin-link-footer").href = content.contact.linkedin;
-        document.getElementById("instagram-link-footer").href = content.contact.instagram;
-        // WhatsApp floating button
-        document.getElementById("whatsapp-btn").href =
-          "https://api.whatsapp.com/send?phone=" + content.contact.whatsapp +
-          "&text=" + encodeURIComponent(content.contact.whatsappMsg);
-        // Footer year
-        document.getElementById("footer-year").innerText = new Date().getFullYear();
-      });
+    // Editable Content - loaded from content.json (in real Netlify CMS deploy, load via fetch or direct import)
+    const content = {
+      hero: {
+        name: "Vikhyaat Sikand",
+        title: "Amazon Ads Specialist | eCommerce Growth Architect",
+        intro: "6.5+ years in digital marketing & eCommerce advertising<br>4.5 years at Oswaal Books (eCommerce Ads & Influencer Marketing) | 2+ years at Physics Wallah<br>Proven track record in scaling brands, optimizing ACOS, and influencer marketing.",
+        tagline: "Helping Brands Thrive on Amazon | Creative. Data-Driven. Impactful."
+      },
+      story: `My journey began not with privilege, but with purpose. From humble beginnings, I stepped into the world of eCommerce not as an expert, but as a relentless learner.<br><br>
+      At Oswaal Books, I faced the challenge of building influencer marketing from scratch while driving eCommerce ad growth. Many doubted if a single campaign could spark a revolution, but I believed every experiment—every late night, every setback—was a step forward.<br><br>
+      When I joined Physics Wallah, the stakes were even higher: high ACOS, limited profitability, and immense pressure. But I saw every challenge as an opportunity to build, innovate, and inspire. I rebuilt frameworks, tested boldly, and proved that with grit and vision, any brand can rise above the noise.<br><br>
+      My story is simple: If you have the hunger to create real impact, you can rewrite the rules. I turned failures into lessons, ideas into actions, and dreams into results. Today, I help brands not just compete—but become unforgettable.<br><br>
+      Success isn’t given. It’s earned—with courage, creativity, and the mindset to never stop growing.`,
+      expertise: "Amazon Advertising, ACOS Optimization, Influencer Marketing, Creative Testing & Ad Framework Building, Data-Driven Growth Strategies",
+      achievements: [
+        {
+          icon: "fa-solid fa-arrow-trend-up",
+          title: "300% Sales Growth",
+          desc: "Delivered exceptional revenue jumps for brands"
+        },
+        {
+          icon: "fa-solid fa-percent",
+          title: "85% ACOS Reduction",
+          desc: "Lowered ad costs substantially while growing sales"
+        },
+        {
+          icon: "fa-solid fa-users",
+          title: "1000+ Influencer Collabs",
+          desc: "Built massive creator partnerships for brands"
+        }
+      ],
+      caseStudies: `<b>Oswaal Books:</b> Built eCommerce ads and influencer marketing from scratch. Led 1000+ creator collabs, resulting in viral reach and organic sales boost.<br><br>
+        <b>Physics Wallah:</b> Transformed ad strategy, rebuilt frameworks, and cut ACOS by 85% while driving 300% sales growth.`,
+      quote: `“Innovation distinguishes between a leader and a follower.” – Steve Jobs`,
+      contact: {
+        email: "vikhyaat.sikand@gmail.com",
+        linkedin: "https://www.linkedin.com/in/vikhyaatsikand",
+        instagram: "https://www.instagram.com/vikhyaatdigital",
+        whatsapp: "918881215329",
+        whatsappMsg: "Hi Vikhyaat, I am interested in boosting my brand with your Amazon marketing strategies."
+      }
+    };
 
+    // Fill content
+    document.getElementById("hero-name").innerHTML = content.hero.name;
+    document.getElementById("hero-title").innerHTML = content.hero.title;
+    document.getElementById("hero-intro").innerHTML = content.hero.intro;
+    // Typing effect
+    let t = 0; const tagText = content.hero.tagline;
+    function typeEffect() {
+      if (t < tagText.length) {
+        document.getElementById("typing-text").innerHTML += tagText.charAt(t);
+        t++;
+        setTimeout(typeEffect, 50);
+      }
+    } typeEffect();
+    // Story
+    document.getElementById("my-story").innerHTML = content.story;
+    // Expertise
+    document.getElementById("expertise").innerHTML = content.expertise;
+    // Achievements
+    document.getElementById("achievements-section").innerHTML = content.achievements.map(a => `
+      <div class="achievement-card">
+        <div class="icon"><i class="${a.icon}"></i></div>
+        <div style="font-size:1.3em;font-weight:600">${a.title}</div>
+        <div>${a.desc}</div>
+      </div>
+    `).join("");
+    // Case studies
+    document.getElementById("case-studies").innerHTML = content.caseStudies;
+    // Quote
+    document.getElementById("quote").innerHTML = content.quote;
+    // Contact
+    document.getElementById("contact-email").href = "mailto:" + content.contact.email;
+    document.getElementById("contact-email").innerText = content.contact.email;
+    document.getElementById("linkedin-link").href = content.contact.linkedin;
+    document.getElementById("instagram-link").href = content.contact.instagram;
+    document.getElementById("linkedin-link-footer").href = content.contact.linkedin;
+    document.getElementById("instagram-link-footer").href = content.contact.instagram;
+    // WhatsApp floating button
+    document.getElementById("whatsapp-btn").href =
+      "https://api.whatsapp.com/send?phone=" + content.contact.whatsapp +
+      "&text=" + encodeURIComponent(content.contact.whatsappMsg);
+    // Footer year
+    document.getElementById("footer-year").innerText = new Date().getFullYear();
+
+    // --- Rest of your effects and canvas ---
     window.addEventListener('load', () => {
       document.getElementById('loader').style.display = 'none';
     });
@@ -320,6 +378,7 @@
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
     camera.position.z = 5;
+
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
