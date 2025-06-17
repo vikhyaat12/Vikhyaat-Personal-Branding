@@ -321,6 +321,62 @@
       section { padding: 36px 8px; }
     }
   </style>
+  /***** ⭐ PERFORMANCE CHART STYLES *****/
+.chart-wrapper {
+  padding: 30px 15px;
+  background: #111;
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.chart-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.bar {
+  flex: 1 1 70px;
+  max-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar-value {
+  font-size: 15px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.bar-fill {
+  background: #f7c600;
+  width: 100%;
+  border-radius: 6px;
+  transition: height 0.3s ease;
+}
+
+.bar-label {
+  font-size: 13px;
+  margin-top: 8px;
+  text-align: center;
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+  .bar-value {
+    font-size: 14px;
+  }
+  .bar-label {
+    font-size: 12px;
+  }
+}
+/***** END CHART STYLES *****/
+
 </head>
 <body>
   <div id="loader">Loading...</div>
@@ -344,11 +400,34 @@
   </section>
 
   <!-- Skills/Expertise -->
-  <section class="skills" data-aos="fade-left">
-    <h2>Expertise</h2>
-    <p id="expertise"></p>
-    <canvas class="skill-canvas" id="skillCanvas"></canvas>
-  </section>
+ <!-- ⭐ Performance Chart Section -->
+<section class="performance-chart" data-aos="fade-up">
+  <h2 style="text-align: center; color: #f7c600;">Performance Highlights</h2>
+  <div class="chart-wrapper">
+    <div class="chart-container">
+      <div class="bar">
+        <div class="bar-value">₹1.5 Cr</div>
+        <div class="bar-fill" style="height: 160px;"></div>
+        <div class="bar-label">Amazon Ads</div>
+      </div>
+      <div class="bar">
+        <div class="bar-value">25%</div>
+        <div class="bar-fill" style="height: 130px;"></div>
+        <div class="bar-label">ACOS Opt</div>
+      </div>
+      <div class="bar">
+        <div class="bar-value">10M+</div>
+        <div class="bar-fill" style="height: 170px;"></div>
+        <div class="bar-label">Influencers</div>
+      </div>
+      <div class="bar">
+        <div class="bar-value">30+</div>
+        <div class="bar-fill" style="height: 110px;"></div>
+        <div class="bar-label">Creatives</div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Achievements -->
   <section class="achievements" data-aos="fade-up" id="achievements-section">
@@ -651,35 +730,8 @@
     });
 
     // Skills Bar Chart
-    const skillCanvas = document.getElementById('skillCanvas');
-    const ctx = skillCanvas.getContext('2d');
-    function drawBars() {
-      ctx.clearRect(0, 0, skillCanvas.width, skillCanvas.height);
-      const skills = [
-        { name: 'Amazon Ads', value: 95 },
-        { name: 'ACOS Optimization', value: 93 },
-        { name: 'Influencer Mktg.', value: 92 },
-        { name: 'Creative Testing', value: 90 },
-        { name: 'Growth Strategy', value: 91 }
-      ];
-      const barWidth = 60;
-      const gap = 40;
-      skills.forEach((skill, i) => {
-        const x = i * (barWidth + gap) + 50;
-        const barHeight = skill.value * 2;
-        ctx.fillStyle = '#f7c600';
-        ctx.fillRect(x, skillCanvas.height - barHeight, barWidth, barHeight);
-        ctx.fillStyle = '#fff';
-        ctx.fillText(skill.name, x, skillCanvas.height - barHeight - 10);
-      });
-    }
-    function resizeSkillCanvas() {
-      skillCanvas.width = skillCanvas.offsetWidth;
-      skillCanvas.height = 300;
-      drawBars();
-    }
-    window.addEventListener('resize', resizeSkillCanvas);
-    resizeSkillCanvas();
+    
+    
   </script>
 </body>
 </html>
