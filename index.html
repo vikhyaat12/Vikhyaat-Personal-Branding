@@ -10,12 +10,6 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <!-- Favicon & OG -->
-  <link rel="icon" href="https://via.placeholder.com/32x32.png?text=VS" />
-  <meta property="og:title" content="Vikhyaat Sikand | Amazon Ads Specialist" />
-  <meta property="og:description" content="Boosting sales with data, creativity, and 6.5+ years of proven experience." />
-  <meta property="og:image" content="https://via.placeholder.com/150" />
-  <meta property="og:type" content="website" />
   <style>
     html { scroll-behavior: smooth; }
     body {
@@ -310,6 +304,22 @@
       color: #fff;
     }
     
+    /* Expertise Section */
+    .expertise {
+      background: linear-gradient(145deg, #111, #000);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      box-shadow: 0 15px 35px rgba(247, 198, 0, 0.25), 0 25px 55px rgba(0, 0, 0, 0.5);
+    }
+    
+    .expertise p {
+      font-size: 1.2em;
+      color: #f7c600;
+    }
+    
     /* Performance Chart Styles */
     .performance-chart {
       background: #111;
@@ -325,6 +335,7 @@
       align-items: flex-end;
       margin-top: 30px;
       flex-wrap: wrap;
+      height: 200px;
     }
     .bar {
       flex: 1;
@@ -334,6 +345,7 @@
       flex-direction: column;
       align-items: center;
       margin: 0 5px;
+      position: relative;
     }
     .bar-value {
       font-size: 15px;
@@ -341,16 +353,21 @@
       margin-bottom: 5px;
     }
     .bar-fill {
-      background: #FFC107;
+      background: linear-gradient(to top, #f7c600, #FFD700);
       width: 100%;
-      border-radius: 4px;
-      transition: height 0.3s ease;
+      border-radius: 4px 4px 0 0;
+      height: 0;
+      transition: height 1.5s ease-out;
+      box-shadow: 0 -5px 10px rgba(247, 198, 0, 0.3);
     }
     .bar-label {
       font-size: 13px;
       margin-top: 6px;
       text-align: center;
       color: white;
+      position: absolute;
+      bottom: -30px;
+      width: 100%;
     }
     
     @media (max-width: 600px) {
@@ -372,6 +389,12 @@
       }
       .bar-label {
         font-size: 12px;
+      }
+      .expertise p {
+        font-size: 1em;
+      }
+      .chart-container {
+        height: 150px;
       }
     }
   </style>
@@ -397,28 +420,34 @@
     <p id="my-story"></p>
   </section>
 
+  <!-- Expertise Section -->
+  <section class="expertise" data-aos="fade-up">
+    <h2>Expertise</h2>
+    <p>Amazon Advertising, ACOS Optimization, Influencer Marketing,<br>Creative Testing & Ad Framework Building, Data-Driven Growth Strategies</p>
+  </section>
+
   <!-- Performance Chart Section -->
-  <section class="performance-chart" data-aos="fade-up">
+  <section class="performance-chart" data-aos="fade-up" id="performance-chart">
     <h2 style="text-align: center; color: #f7c600;">Performance Highlights</h2>
     <div class="chart-container">
       <div class="bar">
         <div class="bar-value">₹1.5 Cr</div>
-        <div class="bar-fill" style="height: 160px;"></div>
+        <div class="bar-fill" data-height="160"></div>
         <div class="bar-label">Amazon Ads</div>
       </div>
       <div class="bar">
         <div class="bar-value">25%</div>
-        <div class="bar-fill" style="height: 130px;"></div>
+        <div class="bar-fill" data-height="130"></div>
         <div class="bar-label">ACOS Opt</div>
       </div>
       <div class="bar">
         <div class="bar-value">10M+</div>
-        <div class="bar-fill" style="height: 170px;"></div>
+        <div class="bar-fill" data-height="170"></div>
         <div class="bar-label">Influencers</div>
       </div>
       <div class="bar">
         <div class="bar-value">30+</div>
-        <div class="bar-fill" style="height: 110px;"></div>
+        <div class="bar-fill" data-height="110"></div>
         <div class="bar-label">Creatives</div>
       </div>
     </div>
@@ -457,6 +486,7 @@
         <a href="/images/award/award-oswaal-3.jpg" target="_blank">
           <img src="/images/award/award-oswaal-3.jpg" alt="Founder Mindset Award - Image 3" style="width: 100%; max-width: 600px; border-radius: 12px;" />
         </a>
+      </div>
       </div>
 
        <!-- Award 2 -->
@@ -532,10 +562,6 @@
   <section class="contact" data-aos="fade-up">
     <h2>Let's Connect</h2>
     <p>Email: <a id="contact-email" href="">Email</a></p>
-    <div class="social-links">
-      <a id="linkedin-link" href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a id="instagram-link" href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    </div>
   </section>
 
   <footer>
@@ -559,7 +585,7 @@
     <i class="fab fa-whatsapp"></i>
   </a>
   <script>
-    // Editable Content - loaded from content.json (in real Netlify CMS deploy, load via fetch or direct import)
+    // Editable Content
     const content = {
       hero: {
         name: "Vikhyaat Sikand",
@@ -641,8 +667,6 @@
       // Contact
       document.getElementById("contact-email").href = "mailto:" + content.contact.email;
       document.getElementById("contact-email").innerText = content.contact.email;
-      document.getElementById("linkedin-link").href = content.contact.linkedin;
-      document.getElementById("instagram-link").href = content.contact.instagram;
       document.getElementById("linkedin-link-footer").href = content.contact.linkedin;
       document.getElementById("instagram-link-footer").href = content.contact.instagram;
       
@@ -659,7 +683,10 @@
     });
 
     // Initialize AOS
-    AOS.init({ duration: 1200 });
+    AOS.init({
+      duration: 1200,
+      once: true
+    });
 
     // Three.js background animation
     const scene = new THREE.Scene();
@@ -711,6 +738,28 @@
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
+
+    // Chart animation function
+    function animateChart() {
+      const bars = document.querySelectorAll('.bar-fill');
+      bars.forEach((bar, index) => {
+        setTimeout(() => {
+          bar.style.height = bar.getAttribute('data-height') + 'px';
+        }, index * 300);
+      });
+    }
+
+    // Run chart animation when section is in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateChart();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(document.querySelector('.performance-chart'));
   </script>
 </body>
 </html>
