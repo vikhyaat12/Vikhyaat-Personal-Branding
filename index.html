@@ -584,6 +584,7 @@
      title="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
+  
   <script>
     // Editable Content
     const content = {
@@ -670,10 +671,10 @@
       document.getElementById("linkedin-link-footer").href = content.contact.linkedin;
       document.getElementById("instagram-link-footer").href = content.contact.instagram;
       
-      // WhatsApp floating button
+      // WhatsApp floating button - FIXED CODE
       document.getElementById("whatsapp-btn").href =
-        "https://api.whatsapp.com/send?phone=" + content.contact.whatsapp +
-        "&text=" + encodeURIComponent(content.contact.whatsappMsg);
+        "https://wa.me/" + content.contact.whatsapp +
+        "?text=" + encodeURIComponent(content.contact.whatsappMsg);
       
       // Footer year
       document.getElementById("footer-year").innerText = new Date().getFullYear();
